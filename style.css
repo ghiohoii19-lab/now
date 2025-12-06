@@ -1,0 +1,614 @@
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#app-container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    background-color: #121212;
+}
+
+#tools-panel,
+#layers-panel {
+    flex-shrink: 0;
+    width: 160px; 
+    background-color: #1e1e1e;
+    padding: 8px; 
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    overflow-y: auto;
+}
+
+#main-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 25px; 
+}
+
+#canvas-wrapper {
+    position: relative;
+    background-color: #333333;
+    border-radius: 1px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+#drawing-canvas {
+    display: block;
+            background-color: transparent; 
+            /* Kanvas ini HANYA menampilkan background dan layers */
+            cursor: crosshair;
+            border: 1px solid #ddd;
+}
+
+h4 {
+    margin-top: 0;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 5px; 
+    font-size: 0.8em; 
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #b0b0b0;
+}
+h2 {
+      margin-top: 0;
+    padding-bottom: 5px;
+    font-size: 1em; 
+    font-weight: 400;
+    text-transform:lowercase;
+    color: #b0b0b0;
+}
+.tool-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px; 
+    margin-bottom: 12px; 
+}
+
+.tool-group label {
+    font-weight: 400;
+    font-size: 11px; 
+    color: #b0b0b0;
+}
+
+.tool-group button {
+    padding: 6px; 
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+    font-size: 0.7em; 
+}
+
+.tool-group button:hover {
+    background-color: #646464;
+     border: 1px solid #f4f2f8;
+}
+
+.tool-group button.active {
+    background-color: #12171d;
+     border: 1px solid #f4f2f8;
+    color: white;
+}
+
+.tool-group input[type="range"] {
+    width: 100%;
+    appearance: none;
+    height: 4px; 
+    background: #333333;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+canvas.eyedropper-active {
+  cursor: crosshair; /* atau url('eyedropper-cursor.png') */
+}
+
+
+.tool-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px; 
+    border-radius: 50%;
+    background: #0478ec;
+    cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.tool-group input[type="color"] {
+    border: none;
+    background: #333333;
+    width: 100%;
+    height: 30px; 
+    padding: 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#layers-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    border: none;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.layer-item {
+    display: flex;
+    align-items: center;
+    gap: 6px; 
+    padding: 6px; 
+    border-bottom: 1px solid #333333;
+    cursor: grab;
+    transition: background-color 0.2s;
+    border-radius: 4px;
+    color: #e0e0e0;
+}
+
+.layer-item:hover {
+    background-color: #faf9f9;
+}
+
+.layer-item.active {
+    background-color: #0b0d0f;
+     border: 1px solid #f4f2f8;
+    color: white;
+}
+
+.layer-item.dragging {
+    opacity: 0.5;
+}
+
+.layer-thumbnail {
+    width: 30px; 
+    height: 30px; 
+    border: 1px solid #444444;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+#zoom-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 6px; 
+    z-index: 10;
+}
+
+#zoom-controls button {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%;
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 300;
+    font-size: 14px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#zoom-controls button:hover {
+    background-color: #444444;
+}
+
+#blending-mode-select {
+    width: 100%;
+    padding: 6px; 
+    border-radius: 4px;
+    border: 1px solid #555555;
+    background-color: #333333;
+    color: #ffffff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#brush-style-select {
+    width: 100%;
+    padding: 6px; 
+    border-radius: 4px;
+    border: 1px solid #555555;
+    background-color: #333333;
+    color: #ffffff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+#brush-style-btn {
+    width: 100%;
+    text-align: left;
+    padding-right: 25px; 
+    position: relative;
+    font-size: 0.7em; 
+}
+
+#brush-style-btn::after {
+    content: '▼';
+    font-size: 8px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #b0b0b0;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: #1e1e1e;
+    border: 1px solid #333333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    margin-top: 5px;
+    padding: 5px 0;
+}
+
+.dropdown-menu .brush-btn {
+    display: block;
+    width: 100%;
+    padding: 6px 10px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 0; 
+    color: #ffffff;
+}
+
+.dropdown-menu .brush-btn:hover {
+    background-color: #333333;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+
+#saveBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+#saveBtn:hover {
+    background-color: #122841;
+}
+
+
+#color-picker {
+    height: 50px;
+}
+
+#add-layer-btn {
+    padding: 1px;
+    background-color: #333333;
+    color: white;
+    font-weight: bol;
+    font-size: 0.9em;
+    margin: 3px;
+    width: 34px;
+}
+
+#delete-layer-btn {
+    padding: 5px;
+     background-color: #333333;
+    color: white;
+    font-weight: bol;
+    font-size: 20px;
+  cursor: pointer;
+     margin: 3px;
+    width: 34px;
+}
+  
+#add-layer-btn:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+#delete-layer-btn:hover{
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+ 
+
+
+#undo-btn {
+  background-color: #333333;
+    color: white;
+     border-radius: 7px;
+      font-size: 30px;
+    cursor: pointer;
+     width: 75px;
+     height: 50px;
+}
+
+#redo-btn {
+     background-color: #333333;
+    color: white;
+     border-radius: 7px;
+     font-size: 30px;
+    cursor: pointer;
+     width: 75px;
+     height: 50px;
+}
+
+#brush-tool {
+    
+background-color: #333333;
+    color: white;
+     border-radius: 7px;
+     font-size: 30px;
+    cursor: pointer;
+     margin: 1px;
+     width: 50px;
+     height: 50px;
+}
+
+#eraser-tool {
+    background-color: #333333;
+    color: white;
+     border-radius: 7px;
+    font-size: 30px;
+    cursor: pointer;
+     margin: 1px;
+     width: 50px;
+     height: 50px;
+}
+
+#bucket-tool {
+     background-color: #333333;
+    color: white;
+     border-radius: 7px;
+    font-size: 30px;
+    cursor: pointer;
+     margin: 1px;
+     width: 50px;
+     height: 50px;
+}
+#bucket-tool:hover { 
+ background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+       opacity: 1;
+}
+#eyedropperBtn{
+     background-color: #333333;
+    color: white;
+     border-radius: 7px;
+    font-size: 30px;
+    cursor: pointer;
+     margin: 1px;
+     width: 30px;
+     height: 30px;
+}
+#ruler-tool {
+     background-color: #333333;
+    color: white;
+     border-radius: 7px;
+      width: 50px;
+       margin: 1px;
+     height: 50px;
+}
+ #brush-tool:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+       opacity: 1;
+ }
+
+#eraser-tool:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+#ruler-tool:hover {
+    background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+#undo-btn:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+#redo-btn:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+.tampilan {
+flex-direction: none;
+display: flex;
+ border-radius: 50px;
+}
+
+#clone {
+     background-color: #333333;
+    color: white;
+     margin: 3px;
+    width: 34px;
+}
+#clone:hover {
+     background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+#gabung {
+     background-color: #333333;
+    color: white;
+     margin: 3px;
+    width: 34px;
+}
+#gabung:hover {
+      background-color: #333333;
+    color: white;
+     border: 1px solid #f4f2f8;
+}
+
+#toggle-panels-btn {
+  display: none;
+}
+#toggle1 {
+  display: none;
+}
+ #selection-toolbar {
+display:none; position:absolute; top:10px; left:10px; background:#fff; border:1px solid #ccc; padding:5px;
+ }
+
+ .toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(50,50,50,0.9);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  
+  #app-container {
+    flex-direction: column;
+    position: relative;
+  }
+
+  
+
+  
+  #tools-panel {
+    position: fixed;
+    top: 0;
+    left: -180px; 
+    width: 160px;
+    height: 100%;
+    background: #1a1a1a;
+    transition: left 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+
+
+  
+
+  #tools-panel.show {
+    left: 0; 
+  }
+
+  #layers-panel.show {
+    right: 0;
+  }
+
+  #brush-style-select {
+    width: 300px;
+  }
+
+  #layers-panel {
+     position: fixed;
+    top: 0;
+    right: -180px; 
+    width: 160px;
+    height: 100%;
+    background: #1a1a1a;
+    transition: right 0.3s ease;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  #layers-panel h4 {
+    font-size: 0.8em;
+    margin: 4px 0;
+    color: #ccc;
+  }
+
+  .layer-item {
+    font-size: 0.75em;
+    padding: 4px;
+    margin-bottom: 4px;
+  }
+#toggle1 { display: block;
+    position: fixed ;
+   right: 10px;
+    top: 20px;
+    z-index: 200;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;}
+ 
+
+  #toggle-panels-btn {
+    display: block;
+    position: fixed;
+    top: 200px;
+    left: 10px;
+    z-index: 200;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+
+

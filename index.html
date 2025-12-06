@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noxnia paint</title>
+    <link rel="icon" type="gambar" href="Gambar.jpg">
+    <link rel="stylesheet"href="style.css">
+<body>
+    
+    <div id="app-container">
+ 
+    <button id="toggle-panels-btn">☰ Panels</button>
+     <button id="toggle1"> layers ☰</button>
+
+        <div id="tools-panel">
+           
+             <h2>Noxnia paint</h2>
+            <h4>Tool🛠</h4>
+            
+          
+            <div class="tampilan">
+                <button id="brush-tool" title="brush" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-brush" viewBox="0 0 16 16">
+                <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.1 6.1 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.1 8.1 0 0 1-3.078.132 4 4 0 0 1-.562-.135 1.4 1.4 0 0 1-.466-.247.7.7 0 0 1-.204-.288.62.62 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896q.19.012.348.048c.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04M4.705 11.912a1.2 1.2 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.4 3.4 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3 3 0 0 0 .126-.75zm1.44.026c.12-.04.277-.1.458-.183a5.1 5.1 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005zm3.582-3.043.002.001h-.002z"/>
+                </svg>
+                </button>
+                <button id="eraser-tool" title="eraser"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16">
+                <path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293z"/>
+                </svg></button>
+                <button id="ruler-tool" title="ruler">📏</button>
+                <button id="bucket-tool"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-paint-bucket" viewBox="0 0 16 16">
+                <path d="M6.192 2.78c-.458-.677-.927-1.248-1.35-1.643a3 3 0 0 0-.71-.515c-.217-.104-.56-.205-.882-.02-.367.213-.427.63-.43.896-.003.304.064.664.173 1.044.196.687.556 1.528 1.035 2.402L.752 8.22c-.277.277-.269.656-.218.918.055.283.187.593.36.903.348.627.92 1.361 1.626 2.068.707.707 1.441 1.278 2.068 1.626.31.173.62.305.903.36.262.05.64.059.918-.218l5.615-5.615c.118.257.092.512.05.939-.03.292-.068.665-.073 1.176v.123h.003a1 1 0 0 0 1.993 0H14v-.057a1 1 0 0 0-.004-.117c-.055-1.25-.7-2.738-1.86-3.494a4 4 0 0 0-.211-.434c-.349-.626-.92-1.36-1.627-2.067S8.857 3.052 8.23 2.704c-.31-.172-.62-.304-.903-.36-.262-.05-.64-.058-.918.219zM4.16 1.867c.381.356.844.922 1.311 1.632l-.704.705c-.382-.727-.66-1.402-.813-1.938a3.3 3.3 0 0 1-.131-.673q.137.09.337.274m.394 3.965c.54.852 1.107 1.567 1.607 2.033a.5.5 0 1 0 .682-.732c-.453-.422-1.017-1.136-1.564-2.027l1.088-1.088q.081.181.183.365c.349.627.92 1.361 1.627 2.068.706.707 1.44 1.278 2.068 1.626q.183.103.365.183l-4.861 4.862-.068-.01c-.137-.027-.342-.104-.608-.252-.524-.292-1.186-.8-1.846-1.46s-1.168-1.32-1.46-1.846c-.147-.265-.225-.47-.251-.607l-.01-.068zm2.87-1.935a2.4 2.4 0 0 1-.241-.561c.135.033.324.11.562.241.524.292 1.186.8 1.846 1.46.45.45.83.901 1.118 1.31a3.5 3.5 0 0 0-1.066.091 11 11 0 0 1-.76-.694c-.66-.66-1.167-1.322-1.458-1.847z"/>
+                </svg></button>
+               
+            </div>
+            
+           
+             <h4></h4>
+            <div class="tool-group">
+                <label for="brush-style-select">Types of Brushes:</label>
+                <select id="brush-style-select">
+                    <option value="normal">normal</option>
+                    <option value="square">square</option>
+                    <option value="dotted">dotted</option>
+                    <option value="textured">textured</option>
+                    <option value="calligraphy">calligraphy</option>
+                    <option value="blender">blend</option>
+                    <option value="spray">Spray</option>
+                    <option value="fuzzy">fuzzy</option>
+                    <option value="watercolor">watercolor</option>
+                    <option value="oil">oil paint</option>
+                    <option value="charcoal">charcoal</option>
+                    <option value="marker">marker</option>
+                    <option value="pixel">pixel</option>
+                    <option value="airbrush">Airbrush</option>
+                    <option value="splatter">splatter</option>
+                    <option value="fur">fur</option>
+                    <option value="wave">wave</option>
+                    <option value="wet-paint">wet-paint</option>
+                    <option value="light">light</option>
+                    <option value="mesh">pointillist</option>
+                    <option value="drip">drip</option>
+                    <option value="blob">blob</option>
+                    <option value="chalk">chalk</option>
+                    <option value="hologram">Hologram</option>
+                    <option value="emboss">emboss</option>
+                    <option value="chain">chain</option>
+                    <option value="maple-leaf">maple-leaf</option>
+                    <option value="mist">mist</option>
+                </select>
+            </div>
+             
+            
+            
+
+
+          
+            <div class="tool-group">
+                <label for="color-picker">Color🎨:</label>
+                <div class="warna">
+
+                <div id="color-wheel"></div>
+
+                <script src="https://cdn.jsdelivr.net/npm/@jaames/iro@5"></script>
+              
+
+                <input type="color" id="color-picker" value="#000000">
+                </div>
+                <div class="tampilan">
+                 <button id="eyedropperBtn1"></button>
+                 </div>
+                <div class="tampilan">
+                <div id="saved-colors"></div>
+                <button id="save-color"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square-dotted" viewBox="0 0 16 16">
+                <path d="M2.5 0q-.25 0-.487.048l.194.98A1.5 1.5 0 0 1 2.5 1h.458V0zm2.292 0h-.917v1h.917zm1.833 0h-.917v1h.917zm1.833 0h-.916v1h.916zm1.834 0h-.917v1h.917zm1.833 0h-.917v1h.917zM13.5 0h-.458v1h.458q.151 0 .293.029l.194-.981A2.5 2.5 0 0 0 13.5 0m2.079 1.11a2.5 2.5 0 0 0-.69-.689l-.556.831q.248.167.415.415l.83-.556zM1.11.421a2.5 2.5 0 0 0-.689.69l.831.556c.11-.164.251-.305.415-.415zM16 2.5q0-.25-.048-.487l-.98.194q.027.141.028.293v.458h1zM.048 2.013A2.5 2.5 0 0 0 0 2.5v.458h1V2.5q0-.151.029-.293zM0 3.875v.917h1v-.917zm16 .917v-.917h-1v.917zM0 5.708v.917h1v-.917zm16 .917v-.917h-1v.917zM0 7.542v.916h1v-.916zm15 .916h1v-.916h-1zM0 9.375v.917h1v-.917zm16 .917v-.917h-1v.917zm-16 .916v.917h1v-.917zm16 .917v-.917h-1v.917zm-16 .917v.458q0 .25.048.487l.98-.194A1.5 1.5 0 0 1 1 13.5v-.458zm16 .458v-.458h-1v.458q0 .151-.029.293l.981.194Q16 13.75 16 13.5M.421 14.89c.183.272.417.506.69.689l.556-.831a1.5 1.5 0 0 1-.415-.415zm14.469.689c.272-.183.506-.417.689-.69l-.831-.556c-.11.164-.251.305-.415.415l.556.83zm-12.877.373Q2.25 16 2.5 16h.458v-1H2.5q-.151 0-.293-.029zM13.5 16q.25 0 .487-.048l-.194-.98A1.5 1.5 0 0 1 13.5 15h-.458v1zm-9.625 0h.917v-1h-.917zm1.833 0h.917v-1h-.917zm1.834-1v1h.916v-1zm1.833 1h.917v-1h-.917zm1.833 0h.917v-1h-.917zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                </svg></button>
+                </div>
+            </div>
+            <h4></h4>
+            <div class="tool-group">
+                <label for="size-slider">Size:</label>
+                <input type="range" id="size-slider" min="1" max="100" value="5">
+                <label for="brush-opacity">Opacity:</label>
+                <input type="range" id="brush-opacity" min="0" max="100" value="100">
+                <label for="layer-opacity">Opacity Layer Aktif:</label>
+                <input type="range" id="layer-opacity" min="0" max="100" value="100">
+
+
+            </div>
+            <div class="tool-group">
+                <button id="blur-filter">blur filter&#128399;</button>
+                 <button id="select-area">select area&#128399;</button>
+                 <div id="selection-toolbar">
+                <button id="flip-h">Flip H</button> 
+                <button id="flip-v">Flip V</button>
+                <button id="rotate">Rotate</button> 
+                <button id="skew">Skew</button>
+                 <button id="cancel-selection">Batal</button>
+                </div>
+                  <button id="pindahkan">pindahkan&#128399;</button>
+                  <button id="pov">persepktif</button>
+            </div>
+            <h4>Riwayat</h4>
+            <div class="tampilan">
+                <button id="undo-btn" title="undo press n"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+                </svg> </button>
+                <button id="redo-btn" title="redo press m"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                </svg></button>
+            </div>
+            
+            <h4>Pengaturan Kanvas</h4>
+            <div class="tool-group">
+                <button id="toggle-orientation-btn">Ubah Orientasi</button>
+            </div>
+            <div class="tool-group">
+                <label for="canvas-width">Lebar:</label>
+                <input type="number" id="canvas-width" value="1200">
+                <label for="canvas-height">Tinggi:</label>
+                <input type="number" id="canvas-height" value="700">
+                <button id="resize-canvas-btn">Ubah Ukuran</button>
+            </div>
+            <h4>Pengaturan & save</h4>
+            <div class="tool-group">
+            <button id="prngaturan">option</button>
+        </div>
+            <div class="tool-group">
+            <button id="saveBtn">💾</button>
+        </div>
+        <div id="toast" class="toast">Saved to gallery!</div>
+
+        </div>
+        
+        
+
+
+
+     
+
+
+
+        <div id="canvas-wrapper">
+            <div id="canvas-container">
+
+                <canvas id="drawing-canvas"></canvas>
+               
+            </div>
+            <div id="zoom-controls">
+               
+            </div>
+        </div>
+        
+       
+         <div id="layers-panel">
+            <h4> layers <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layers" viewBox="0 0 16 16">
+            <path d="M8.235 1.559a.5.5 0 0 0-.47 0l-7.5 4a.5.5 0 0 0 0 .882L3.188 8 .264 9.559a.5.5 0 0 0 0 .882l7.5 4a.5.5 0 0 0 .47 0l7.5-4a.5.5 0 0 0 0-.882L12.813 8l2.922-1.559a.5.5 0 0 0 0-.882zm3.515 7.008L14.438 10 8 13.433 1.562 10 4.25 8.567l3.515 1.874a.5.5 0 0 0 .47 0zM8 9.433 1.562 6 8 2.567 14.438 6z"/>
+            </svg></h4>
+            <div class="tool-group">
+                <label for="blending-mode-select">Blending Mode:</label>
+                <select id="blending-mode-select">
+                    <option value="source-over">Normal</option>
+                    <option value="multiply">Multiply</option>
+                    <option value="screen">Screen</option>
+                    <option value="overlay">Overlay</option>
+                    <option value="darken">Darken</option>
+                    <option value="lighten">Lighten</option>
+                    <option value="color-burn">Color Burn</option>
+                    <option value="color-dodge">Color Dodge</option>
+                    <option value="hard-light">Hard Light</option>
+                    <option value="soft-light">Soft Light</option>
+                    <option value="difference">Difference</option>
+                    <option value="exclusion">Exclusion</option>
+                    <option value="hue">Hue</option>
+                    <option value="saturation">Saturation</option>
+                    <option value="color">Color</option>
+                    <option value="luminosity">Luminosity</option>
+                </select>
+            </div>
+            <div id="layers-list"></div>
+              <div class="tampilan">
+            <button id="add-layer-btn">+</button>
+            <button id="delete-layer-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5.5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6zm2.5-.5a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1 0-2h3.1a1 1 0 0 1 .9-.6h2a1 1 0 0 1 .9.6h3.1a1 1 0 0 1 1 1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118z"/>
+            </svg></button>
+             <button id="clone"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+            </svg></button>
+              <button id="gabung"> <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2l9 5-9 5-9-5 9-5zm0 7l9 5-9 5-9-5 9-5z"/>
+            <path d="M12 22l-4-4h8l-4 4z"/></button>
+              </div>
+        </div>
+
+
+
+    </div>
+<input type="color" id="bgColorPicker" value="#ffffff">
+
+
+    <script src="script.js"></script>
+</body>
+</html>
